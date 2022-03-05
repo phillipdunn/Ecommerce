@@ -4,11 +4,9 @@ import MenuComponent from '../../components/MenuComponent';
 
 const HomePage = ({ menuItems }) => {
   return (
-    <>
-      {menuItems.map((item) => {
-        return <MenuComponent item={item} />;
-      })}
-    </>
+    <div className={styles.homePage}>
+      <MenuComponent menuItems={menuItems} />
+    </div>
   );
 };
 

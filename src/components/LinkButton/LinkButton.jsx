@@ -1,10 +1,10 @@
-import React from "react";
-import styles from "./LinkButton.module.scss";
+import React from 'react';
+import styles from './LinkButton.module.scss';
 
-const LinkButton = () => {
+const LinkButton = ({ link }) => {
   return (
     <>
-      <p>LinkButton works</p>
+      <span>SHOP NOW</span>
     </>
   );
 };

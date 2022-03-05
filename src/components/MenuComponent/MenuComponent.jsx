@@ -1,13 +1,13 @@
 import React from 'react';
+import MenuItem from '../MenuItem/MenuItem';
 import styles from './MenuComponent.module.scss';
-import LinkButton from '../LinkButton';
 
-const MenuComponent = ({ item }) => {
+const MenuComponent = ({ menuItems }) => {
   return (
-    <div className={styles.menuItem}>
-      <h1>{item.title}</h1>
-      <img src={item.imageUrl} alt="" />
-      <LinkButton />
+    <div className={styles.menuComponent}>
+      {menuItems.map((item) => {
+        return <MenuItem item={item} />;
+      })}
     </div>
   );
 };

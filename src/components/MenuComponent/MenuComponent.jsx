@@ -1,11 +1,14 @@
-import React from "react";
-import styles from "./MenuComponent.module.scss";
+import React from 'react';
+import styles from './MenuComponent.module.scss';
+import LinkButton from '../LinkButton';
 
-const MenuComponent = () => {
+const MenuComponent = ({ item }) => {
   return (
-    <>
-      <p>MenuComponent works</p>
-    </>
+    <div className={styles.menuItem}>
+      <h1>{item.title}</h1>
+      <img src={item.imageUrl} alt="" />
+      <LinkButton />
+    </div>
   );
 };
 

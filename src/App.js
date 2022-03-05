@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 import './App.css';
 import HomePage from './pages/HomePage';
 import { menuItems } from './assets/menuItems';
@@ -6,7 +7,7 @@ import { menuItems } from './assets/menuItems';
 function App() {
   return (
     <>
-      <HomePage menuItems={menuItems} />
+      <Route exact path="/" render={() => <HomePage menuItems={menuItems} />} />
     </>
   );
 }

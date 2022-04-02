@@ -1,0 +1,21 @@
+.logo{
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+.navLinks{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    gap:2rem;
+
+    .link,.basket{
+        color:#fff;
+        font-size: 20px;
+        font-weight: bold   ;
+    &:hover {
+          color: #eaeaea;
+          border-bottom: 1px solid white;
+        }
+    }
+}

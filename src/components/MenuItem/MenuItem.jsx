@@ -5,19 +5,18 @@ import styles from './MenuItem.module.scss';
 const MenuItem = ({ item, history, match }) => {
   return (
     <div
-      className={styles.menuItem}
+      className={item.size ? styles.largeMenuItem : styles.menuItem}
       onClick={() => history.push(`${match.url}${item.linkUrl}`)}
     >
       <div
-        className={item.size ? styles.backgroundImage : styles.large}
+        className={styles.backgroundImage}
         style={{
-          backgroundImage: `url(${item.imageUrl})`
+          backgroundImage: `url(${item.imageUrl})`,
         }}
-      >
-        <div className={styles.content}>
-          <h1>{item.title.toUpperCase()}</h1>
-          <span>SHOP NOW</span>
-        </div>
+      />
+      <div className={styles.content}>
+        <h1>{item.title.toUpperCase()}</h1>
+        <span>SHOP NOW</span>
       </div>
     </div>
   );

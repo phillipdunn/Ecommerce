@@ -9,7 +9,7 @@ const NavBar = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{ background: 'grey' }}>
       <CssBaseline />
       <Toolbar>
         <Typography variant="h4" className={styles.logo}>

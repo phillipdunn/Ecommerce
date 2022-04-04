@@ -10,11 +10,10 @@ const NavBar = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   return (
     <AppBar position="static" style={{ background: 'grey' }}>
-      <CssBaseline />
       <Toolbar>
-        <Typography variant="h4" className={styles.logo}>
-          Ecom
-        </Typography>
+        <NavLink to="/" className={styles.logo}>
+          Home
+        </NavLink>
         {isMobile ? (
           <NavDrawer />
         ) : (

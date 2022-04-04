@@ -16,7 +16,7 @@ function App() {
       <Route path="/shop" component={Shop} />
       <Route path="/contact" component={Contact} />
       <Route path="/signin" component={Signin} />
-      <Route path="/faq" component={Basket} />
+      <Route path="/basket" component={Basket} />
     </>
   );
 }

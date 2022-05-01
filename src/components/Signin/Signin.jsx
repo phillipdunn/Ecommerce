@@ -1,13 +1,14 @@
 import { Button } from '@mui/material';
 import React from 'react';
-import { signInWithPopupGoogle } from '../../utils/firebase/firebase.utils';
+import { signInWithPopupGoogle, createUserDocFromAuth } from '../../utils/firebase/firebase.utils';
 import styles from './Signin.module.scss';
 
 const Signin = () => {
   const loginGoogleUser = async () => {
-    const res = await signInWithPopupGoogle();
-    console.log(res);
+    const { user } = await signInWithPopupGoogle();
+    createUserDocFromAuth(user);
   };
+
   return (
     <>
       <Button variant="contained" onClick={loginGoogleUser}>

@@ -6,7 +6,7 @@ import styles from './SignUp.module.scss';
 import { createAuthUserEmailAndPassword, createUserDocFromAuth } from '../../utils/firebase/firebase.utils';
 
 const SignUp = () => {
-  const [formError, setFormError] = useState('');
+  const [formMessage, setFormMessage] = useState('');
   const required = (value) => (value ? undefined : 'Required');
   const isNameValid = (value) => (value && value.length > 2 ? undefined : 'Name must be at least 3 characters');
   const isEmailValid = (value) => (emailValidator(value) ? undefined : 'Invalid email');
@@ -18,12 +18,12 @@ const SignUp = () => {
   const onSubmit = async (values) => {
     try {
       const { user } = await createAuthUserEmailAndPassword(values.email.trim(), values.password.trim());
-      await createUserDocFromAuth(user, values.displayName.trim());
+      await createUserDocFromAuth(user, { displayName: values.displayName.trim() });
+      setFormMessage(`New user ${values.displayName} created`);
     } catch (error) {
       if (error.code === 'auth/email-already-in-use') {
-        setFormError('Email already in use');
+        setFormMessage('Email already in use');
       }
-      console.log('user creation error', error);
     }
   };
 
@@ -98,7 +98,7 @@ const SignUp = () => {
               </Button>
             </Grid>
             <Grid item xs={12} sx={{ mx: 2 }}>
-              {formError && <span>{formError}</span>}
+              {formMessage && <span>{formMessage}</span>}
             </Grid>
           </Grid>
           {/* JSON preview */}

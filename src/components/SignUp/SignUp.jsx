@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Field } from 'react-final-form';
-import { Button, TextField } from '@mui/material';
+import { Button, Grid, TextField } from '@mui/material';
 import emailValidator from '../../utils/helpers/email-validator';
 import styles from './SignUp.module.scss';
-import { createAuthUserEmailAndPassword } from '../../utils/firebase/firebase.utils';
+import { createAuthUserEmailAndPassword, createUserDocFromAuth } from '../../utils/firebase/firebase.utils';
 
 const SignUp = () => {
+  const [formError, setFormError] = useState('');
   const required = (value) => (value ? undefined : 'Required');
   const isNameValid = (value) => (value && value.length > 2 ? undefined : 'Name must be at least 3 characters');
   const isEmailValid = (value) => (emailValidator(value) ? undefined : 'Invalid email');
@@ -16,10 +17,13 @@ const SignUp = () => {
 
   const onSubmit = async (values) => {
     try {
-      await createAuthUserEmailAndPassword(values.email.trim(), values.password.trim());
+      const { user } = await createAuthUserEmailAndPassword(values.email.trim(), values.password.trim());
+      await createUserDocFromAuth(user, values.displayName.trim());
     } catch (error) {
+      if (error.code === 'auth/email-already-in-use') {
+        setFormError('Email already in use');
+      }
       console.log('user creation error', error);
-      throw new Error(error);
     }
   };
 
@@ -43,44 +47,60 @@ const SignUp = () => {
       }}
       render={({ handleSubmit, form, submitting, pristine, values }) => (
         <form onSubmit={handleSubmit}>
-          <Field name="displayName" validate={composeValidators(required, isNameValid)}>
-            {({ input, meta }) => (
-              <div>
-                <TextField {...input} label="Display name" variant="outlined" type="text" />
-                {meta.error && meta.touched && <span>{meta.error}</span>}
-              </div>
-            )}
-          </Field>
-          <Field name="email" validate={composeValidators(required, isEmailValid)}>
-            {({ input, meta }) => (
-              <div>
-                <TextField {...input} label="Email" variant="outlined" type="email" />
-                {meta.error && meta.touched && <span>{meta.error}</span>}
-              </div>
-            )}
-          </Field>
-          <Field name="password">
-            {({ input, meta }) => (
-              <div>
-                <TextField {...input} label="Password" variant="outlined" type="password" />
-                {meta.error && meta.touched && <span>{meta.error}</span>}
-              </div>
-            )}
-          </Field>
-          <Field name="confirmPassword">
-            {({ input, meta }) => (
-              <div>
-                <TextField {...input} label="Confirm password" variant="outlined" type="password" />
-                {meta.error && meta.touched && <span>{meta.error}</span>}
-              </div>
-            )}
-          </Field>
-          <Button type="submit" disabled={submitting}>
-            Submit
-          </Button>
-          <Button type="button" disabled={submitting || pristine} onClick={form.reset}>
-            Reset
-          </Button>
+          <Grid container>
+            <Grid item xs={12} sx={{ m: 2 }}>
+              <Field name="displayName" validate={composeValidators(required, isNameValid)}>
+                {({ input, meta }) => (
+                  <div>
+                    <TextField {...input} label="Display name" variant="outlined" type="text" />
+                    {meta.error && meta.touched && <span>{meta.error}</span>}
+                  </div>
+                )}
+              </Field>
+            </Grid>
+            <Grid item xs={12} sx={{ m: 2 }}>
+              <Field name="email" validate={composeValidators(required, isEmailValid)}>
+                {({ input, meta }) => (
+                  <div>
+                    <TextField {...input} label="Email" variant="outlined" type="email" />
+                    {meta.error && meta.touched && <span>{meta.error}</span>}
+                  </div>
+                )}
+              </Field>
+            </Grid>
+            <Grid item xs={12} sx={{ m: 2 }}>
+              <Field name="password">
+                {({ input, meta }) => (
+                  <div>
+                    <TextField {...input} label="Password" variant="outlined" type="password" />
+                    {meta.error && meta.touched && <span>{meta.error}</span>}
+                  </div>
+                )}
+              </Field>
+            </Grid>
+            <Grid item xs={12} sx={{ m: 2 }}>
+              <Field name="confirmPassword">
+                {({ input, meta }) => (
+                  <div>
+                    <TextField {...input} label="Confirm password" variant="outlined" type="password" />
+                    {meta.error && meta.touched && <span>{meta.error}</span>}
+                  </div>
+                )}
+              </Field>
+            </Grid>
+            <Grid item xs={12} sx={{ m: 2 }}>
+              <Button type="submit" disabled={submitting}>
+                Submit
+              </Button>
+
+              <Button type="button" disabled={submitting || pristine} onClick={form.reset}>
+                Reset
+              </Button>
+            </Grid>
+            <Grid item xs={12} sx={{ mx: 2 }}>
+              {formError && <span>{formError}</span>}
+            </Grid>
+          </Grid>
           {/* JSON preview */}
           {/* <pre>{JSON.stringify(values, 0, 2)}</pre> */}
         </form>

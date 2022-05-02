@@ -3,7 +3,7 @@
 A mock e-commerce application.
 
 - built with create react app
-- using Material-UI, SCSS, fontawesome
+- using Material-UI, react-final-form, SCSS, fontawesome
 
 ## Running the project
 

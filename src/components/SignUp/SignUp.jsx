@@ -43,7 +43,7 @@ const SignUp = () => {
       }}
       render={({ handleSubmit, form, submitting, pristine, values }) => (
         <form onSubmit={handleSubmit}>
-          <Field name="firstName" validate={composeValidators(required, isNameValid)}>
+          <Field name="displayName" validate={composeValidators(required, isNameValid)}>
             {({ input, meta }) => (
               <div>
                 <TextField {...input} label="Display name" variant="outlined" type="text" />

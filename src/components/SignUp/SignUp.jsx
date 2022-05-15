@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Form, Field } from 'react-final-form';
 import { Button, Grid, TextField } from '@mui/material';
 import emailValidator from '../../utils/helpers/email-validator';
-import styles from './SignUp.module.scss';
 import { createAuthUserEmailAndPassword, createUserDocFromAuth } from '../../utils/firebase/firebase.utils';
 
 const SignUp = () => {
@@ -92,7 +91,6 @@ const SignUp = () => {
               <Button type="submit" disabled={submitting}>
                 Submit
               </Button>
-
               <Button type="button" disabled={submitting || pristine} onClick={form.reset}>
                 Reset
               </Button>

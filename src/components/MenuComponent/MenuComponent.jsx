@@ -6,7 +6,7 @@ const MenuComponent = ({ menuItems }) => {
   return (
     <div className={styles.menuComponent}>
       {menuItems.map((item) => {
-        return <MenuItem item={item} />;
+        return <MenuItem key={item.id} item={item} />;
       })}
     </div>
   );

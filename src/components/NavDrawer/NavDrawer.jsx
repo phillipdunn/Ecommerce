@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Drawer, IconButton, List, ListItem, ListItemText } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../context/UserContext/user.context';
+import { signOutAuthUser } from '../../utils/firebase/firebase.utils';
 
 const NavDrawer = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
+  const { currentUser, setCurrentUser } = useContext(UserContext);
+
+  const handleSignOut = async () => {
+    await signOutAuthUser();
+    setCurrentUser(null);
+  };
+
   return (
     <>
       <Drawer open={openDrawer} onClose={() => setOpenDrawer(false)} anchor="right">
@@ -21,7 +30,13 @@ const NavDrawer = () => {
           </ListItem>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/signin">Sign In</Link>
+              {currentUser === null ? (
+                <Link to="/auth">Sign In</Link>
+              ) : (
+                <Link to="/" onClick={handleSignOut}>
+                  Sign Out
+                </Link>
+              )}
             </ListItemText>
           </ListItem>
           <ListItem onClick={() => setOpenDrawer(false)}>

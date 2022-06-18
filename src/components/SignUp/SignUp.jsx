@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Form, Field } from 'react-final-form';
 import { Button, Grid, TextField } from '@mui/material';
 import emailValidator from '../../utils/helpers/email-validator';
 import { createAuthUserEmailAndPassword, createUserDocFromAuth } from '../../utils/firebase/firebase.utils';
+import { UserContext } from '../../context/UserContext/user.context';
 
 const SignUp = () => {
   const [formMessage, setFormMessage] = useState('');
+  const { setCurrentUser } = useContext(UserContext);
+
   const required = (value) => (value ? undefined : 'Required');
   const isNameValid = (value) => (value && value.length > 2 ? undefined : 'Name must be at least 3 characters');
   const isEmailValid = (value) => (emailValidator(value) ? undefined : 'Invalid email');
@@ -17,6 +20,7 @@ const SignUp = () => {
   const onSubmit = async (values) => {
     try {
       const { user } = await createAuthUserEmailAndPassword(values.email.trim(), values.password.trim());
+      setCurrentUser(user);
       await createUserDocFromAuth(user, { displayName: values.displayName.trim() });
       setFormMessage(`New user ${values.displayName} created`);
     } catch (error) {

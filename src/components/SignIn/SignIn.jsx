@@ -18,8 +18,16 @@ const SignIn = () => {
       const { user } = await signInAuthUserEmailAndPassword(values.email, values.password);
       console.log(user);
     } catch (error) {
-      if (error.code === 'auth/email-already-in-use') {
-        setFormMessage('Invalid email or password');
+      switch (error) {
+        case 'auth/user-not-found':
+          setFormMessage('User not found');
+          break;
+        case 'auth/wrong-password':
+          setFormMessage('Incorrect password');
+          break;
+        default:
+          setFormMessage('Unkonwn error');
+          break;
       }
     }
   };
@@ -40,20 +48,28 @@ const SignIn = () => {
             <Grid item xs={12} sx={{ m: 2 }}>
               <Field name="email" validate={composeValidators(required, isEmailValid)}>
                 {({ input, meta }) => (
-                  <div>
-                    <TextField {...input} label="Email" variant="outlined" type="email" />
-                    {meta.error && meta.touched && <span>{meta.error}</span>}
-                  </div>
+                  <Grid container direction="column">
+                    <Grid item>
+                      <TextField {...input} label="Email" variant="outlined" type="email" />
+                    </Grid>
+                    <Grid item sx={{ color: 'red', pt: 1, pb: 0 }}>
+                      {meta.error && meta.touched && <span>{meta.error}</span>}
+                    </Grid>
+                  </Grid>
                 )}
               </Field>
             </Grid>
             <Grid item xs={12} sx={{ m: 2 }}>
               <Field name="password">
                 {({ input, meta }) => (
-                  <div>
-                    <TextField {...input} label="Password" variant="outlined" type="password" />
-                    {meta.error && meta.touched && <span>{meta.error}</span>}
-                  </div>
+                  <Grid container direction="column">
+                    <Grid item>
+                      <TextField {...input} label="Password" variant="outlined" type="password" />
+                    </Grid>
+                    <Grid item sx={{ color: 'red', pt: 1, pb: 0 }}>
+                      {meta.error && meta.touched && <span>{meta.error}</span>}
+                    </Grid>
+                  </Grid>
                 )}
               </Field>
             </Grid>

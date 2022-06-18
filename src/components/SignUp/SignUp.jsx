@@ -47,43 +47,59 @@ const SignUp = () => {
       render={({ handleSubmit, form, submitting, pristine, values }) => (
         <form onSubmit={handleSubmit}>
           <Grid container>
-            <Grid item xs={12} sx={{ m: 2 }}>
+            <Grid item xs={12} sx={{ m: 3 }}>
               <Field name="displayName" validate={composeValidators(required, isNameValid)}>
                 {({ input, meta }) => (
-                  <div>
-                    <TextField {...input} label="Display name" variant="outlined" type="text" />
-                    {meta.error && meta.touched && <span>{meta.error}</span>}
-                  </div>
+                  <Grid container direction="column">
+                    <Grid item>
+                      <TextField {...input} label="Display name" variant="outlined" type="text" />
+                    </Grid>
+                    <Grid item sx={{ pt: 1, pb: 0, color: 'red' }}>
+                      {meta.error && meta.touched && <span>{meta.error}</span>}
+                    </Grid>
+                  </Grid>
                 )}
               </Field>
             </Grid>
             <Grid item xs={12} sx={{ m: 2 }}>
               <Field name="email" validate={composeValidators(required, isEmailValid)}>
                 {({ input, meta }) => (
-                  <div>
-                    <TextField {...input} label="Email" variant="outlined" type="email" />
-                    {meta.error && meta.touched && <span>{meta.error}</span>}
-                  </div>
+                  <Grid container direction="column">
+                    <Grid item>
+                      <TextField {...input} label="Email" variant="outlined" type="email" />
+                    </Grid>
+                    <Grid item sx={{ pt: 1, pb: 0, color: 'red' }}>
+                      {meta.error && meta.touched && <span>{meta.error}</span>}
+                    </Grid>
+                  </Grid>
                 )}
               </Field>
             </Grid>
             <Grid item xs={12} sx={{ m: 2 }}>
               <Field name="password">
                 {({ input, meta }) => (
-                  <div>
-                    <TextField {...input} label="Password" variant="outlined" type="password" />
-                    {meta.error && meta.touched && <span>{meta.error}</span>}
-                  </div>
+                  <Grid container direction="column">
+                    <Grid item>
+                      <TextField {...input} label="Password" variant="outlined" type="password" />
+                    </Grid>
+                    <Grid item sx={{ pt: 1, pb: 0, color: 'red' }}>
+                      {meta.error && meta.touched && <span>{meta.error}</span>}
+                    </Grid>
+                  </Grid>
                 )}
               </Field>
             </Grid>
             <Grid item xs={12} sx={{ m: 2 }}>
               <Field name="confirmPassword">
                 {({ input, meta }) => (
-                  <div>
-                    <TextField {...input} label="Confirm password" variant="outlined" type="password" />
-                    {meta.error && meta.touched && <span>{meta.error}</span>}
-                  </div>
+                  <Grid container direction="column">
+                    <Grid item>
+                      <TextField {...input} label="Confirm password" variant="outlined" type="password" />
+                    </Grid>
+                    <Grid item sx={{ color: 'red', pt: 1, pb: 0 }}>
+                      {meta.error && meta.touched && <span>{meta.error}</span>}
+                    </Grid>
+                  </Grid>
                 )}
               </Field>
             </Grid>

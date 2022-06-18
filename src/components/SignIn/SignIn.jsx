@@ -15,10 +15,8 @@ const SignIn = () => {
 
   const onSubmit = async (values) => {
     try {
-      const { user } = await signInAuthUserEmailAndPassword(values.email.trim(), values.password.trim());
+      const { user } = await signInAuthUserEmailAndPassword(values.email, values.password);
       console.log(user);
-      // await createUserDocFromAuth(user, { displayName: values.displayName.trim() });
-      // setFormMessage(`New user ${values.displayName} created`);
     } catch (error) {
       if (error.code === 'auth/email-already-in-use') {
         setFormMessage('Invalid email or password');

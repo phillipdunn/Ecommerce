@@ -63,7 +63,7 @@ export const createAuthUserEmailAndPassword = async (email, password) => {
 export const signInAuthUserEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
   try {
-    await signInWithEmailAndPassword(auth, email, password);
+    return await signInWithEmailAndPassword(auth, email, password);
   } catch (error) {
     console.log('error creating user', error.message);
     throw error;

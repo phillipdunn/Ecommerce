@@ -7,12 +7,7 @@ import { signOutAuthUser } from '../../utils/firebase/firebase.utils';
 
 const NavDrawer = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
-  const { currentUser, setCurrentUser } = useContext(UserContext);
-
-  const handleSignOut = async () => {
-    await signOutAuthUser();
-    setCurrentUser(null);
-  };
+  const { currentUser } = useContext(UserContext);
 
   return (
     <>
@@ -33,7 +28,7 @@ const NavDrawer = () => {
               {currentUser === null ? (
                 <Link to="/auth">Sign In</Link>
               ) : (
-                <Link to="/" onClick={handleSignOut}>
+                <Link to="/" onClick={signOutAuthUser}>
                   Sign Out
                 </Link>
               )}

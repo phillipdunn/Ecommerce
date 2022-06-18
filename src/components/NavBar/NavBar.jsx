@@ -10,12 +10,7 @@ import { signOutAuthUser } from '../../utils/firebase/firebase.utils';
 const NavBar = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  const { currentUser, setCurrentUser } = useContext(UserContext);
-
-  const handleSignOut = async () => {
-    await signOutAuthUser();
-    setCurrentUser(null);
-  };
+  const { currentUser } = useContext(UserContext);
 
   return (
     <AppBar position="static" style={{ background: 'grey' }}>
@@ -38,7 +33,7 @@ const NavBar = () => {
                 Sign In
               </NavLink>
             ) : (
-              <NavLink to="/" onClick={handleSignOut} className={styles.link}>
+              <NavLink to="/" onClick={signOutAuthUser} className={styles.link}>
                 Sign Out
               </NavLink>
             )}

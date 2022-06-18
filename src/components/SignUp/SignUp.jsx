@@ -1,13 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Form, Field } from 'react-final-form';
-import { Button, Grid, TextField } from '@mui/material';
+import { Box, Button, Grid, TextField } from '@mui/material';
 import emailValidator from '../../utils/helpers/email-validator';
 import { createAuthUserEmailAndPassword, createUserDocFromAuth } from '../../utils/firebase/firebase.utils';
-import { UserContext } from '../../context/UserContext/user.context';
 
 const SignUp = () => {
   const [formMessage, setFormMessage] = useState('');
-  const { setCurrentUser } = useContext(UserContext);
 
   const required = (value) => (value ? undefined : 'Required');
   const isNameValid = (value) => (value && value.length > 2 ? undefined : 'Name must be at least 3 characters');
@@ -20,7 +18,6 @@ const SignUp = () => {
   const onSubmit = async (values) => {
     try {
       const { user } = await createAuthUserEmailAndPassword(values.email.trim(), values.password.trim());
-      setCurrentUser(user);
       await createUserDocFromAuth(user, { displayName: values.displayName.trim() });
       setFormMessage(`New user ${values.displayName} created`);
     } catch (error) {
@@ -121,7 +118,9 @@ const SignUp = () => {
               </Button>
             </Grid>
             <Grid item xs={12} sx={{ mx: 2 }}>
-              {formMessage && <span sx={{ color: 'red' }}>{formMessage}</span>}
+              {formMessage && (
+                <Box sx={{ color: formMessage === 'Email already in use' ? 'red' : 'green' }}>{formMessage}</Box>
+              )}
             </Grid>
           </Grid>
           {/* JSON preview */}

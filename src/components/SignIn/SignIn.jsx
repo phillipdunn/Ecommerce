@@ -1,14 +1,12 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { Form, Field } from 'react-final-form';
 import { Button, Grid, TextField } from '@mui/material';
 import { useHistory } from 'react-router-dom';
 import emailValidator from '../../utils/helpers/email-validator';
 import { signInAuthUserEmailAndPassword } from '../../utils/firebase/firebase.utils';
-import { UserContext } from '../../context/UserContext/user.context';
 
 const SignIn = () => {
   const [formMessage, setFormMessage] = useState('');
-  const { setCurrentUser } = useContext(UserContext);
   const history = useHistory();
 
   const required = (value) => (value ? undefined : 'Required');
@@ -20,8 +18,7 @@ const SignIn = () => {
 
   const onSubmit = async (values) => {
     try {
-      const { user } = await signInAuthUserEmailAndPassword(values.email, values.password);
-      setCurrentUser(user);
+      await signInAuthUserEmailAndPassword(values.email, values.password);
       history.push('/');
     } catch (error) {
       switch (error) {

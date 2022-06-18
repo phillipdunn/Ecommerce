@@ -88,15 +88,20 @@ const SignUp = () => {
               </Field>
             </Grid>
             <Grid item xs={12} sx={{ m: 2 }}>
-              <Button type="submit" disabled={submitting}>
+              <Button type="submit" disabled={submitting} sx={{ background: 'black', color: 'white' }}>
                 Submit
               </Button>
-              <Button type="button" disabled={submitting || pristine} onClick={form.reset}>
+              <Button
+                type="button"
+                disabled={submitting || pristine}
+                onClick={form.reset}
+                sx={{ border: 'solid 2px grey', p: 0.5, m: 1 }}
+              >
                 Reset
               </Button>
             </Grid>
             <Grid item xs={12} sx={{ mx: 2 }}>
-              {formMessage && <span>{formMessage}</span>}
+              {formMessage && <span sx={{ color: 'red' }}>{formMessage}</span>}
             </Grid>
           </Grid>
           {/* JSON preview */}

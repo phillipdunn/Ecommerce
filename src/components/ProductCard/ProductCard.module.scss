@@ -1,0 +1,14 @@
+.container {
+    .button {
+        display: none;
+    }
+    &:hover {
+        .image {
+            opacity: 0.1;
+        }
+        .button {
+            opacity: 1;
+            display: flex;
+        }
+    }
+} 

@@ -1,11 +1,17 @@
-import React from "react";
-import styles from "./Shop.module.scss";
+import React, { useContext } from 'react';
+import ProductCard from '../ProductCard/ProductCard';
+import styles from './Shop.module.scss';
+import { ProductContext } from '../../context/ProductContext/product.context';
+import { Grid } from '@mui/material';
 
 const Shop = () => {
+  const { products } = useContext(ProductContext);
   return (
-    <>
-      <p>Shop works</p>
-    </>
+    <Grid container>
+      {products?.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
+    </Grid>
   );
 };
 

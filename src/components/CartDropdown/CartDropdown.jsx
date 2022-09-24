@@ -36,7 +36,9 @@ const CartDropdown = ({ anchorEl, id, onClose: handleClose, open }) => {
               ))}
             </List>
             <Link to="/checkout">
-              <Button variant="outlined"> Go to checkout</Button>
+              <Button variant="outlined" onClick={handleClose}>
+                Go to checkout
+              </Button>
             </Link>
           </>
         ) : (

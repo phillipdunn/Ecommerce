@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "name": "Red Trainers",
+        "imageUrl": "https://t3.ftcdn.net/jpg/00/77/52/94/240_F_77529477_n4TqondFEsZWUpKcJXg5TiWndYnvzsqc.jpg",
+        "price": 25
+    },
+    {
+        "id": 2,
+        "name": "White Trainers",
+        "imageUrl": "https://t3.ftcdn.net/jpg/01/98/11/36/240_F_198113627_E5hQnRt4BsqtRL6N4wiELAS9Y59oYLnc.jpg",
+        "price": 18
+    },
+    {
+        "id": 3,
+        "name": "Cream Trainers",
+        "imageUrl": "https://t4.ftcdn.net/jpg/02/11/11/15/240_F_211111574_VLtzH6ORhebXvnJXjlkAkaUuAftnvmJH.jpg",
+        "price": 35
+    },
+    {
+        "id": 4,
+        "name": "Brown Shoes",
+        "imageUrl": "https://t4.ftcdn.net/jpg/02/98/59/83/240_F_298598309_GFrMKsw0j4Vo2CufzeFFGoysAT52soYz.jpg",
+        "price": 25
+    },
+    {
+        "id": 5,
+        "name": "Blue Trainers",
+        "imageUrl": "https://t3.ftcdn.net/jpg/02/77/57/08/240_F_277570866_4paYMmM6jGZC70J4wJhRNlML3JzRWJKQ.jpg",
+        "price": 18
+    },
+    {
+        "id": 6,
+        "name": "Orange Football Boots",
+        "imageUrl": "https://t4.ftcdn.net/jpg/03/31/63/23/240_F_331632326_uQWdocQgdS4TbPEJ02JF61YdjL8QNkL8.jpg",
+        "price": 14
+    },
+    {
+        "id": 7,
+        "name": "Pink Trainers",
+        "imageUrl": "https://t3.ftcdn.net/jpg/00/72/34/30/240_F_72343007_RziabN4GgQGpX3f2MUJsryesYGuIvVhD.jpg",
+        "price": 18
+    },
+    {
+        "id": 8,
+        "name": "Wolf Cap",
+        "imageUrl": "https://i.ibb.co/1f2nWMM/wolf-cap.png",
+        "price": 14
+    },
+    {
+        "id": 9,
+        "name": "Blue Snapback",
+        "imageUrl": "https://i.ibb.co/X2VJP2W/blue-snapback.png",
+        "price": 16
+    }
+]

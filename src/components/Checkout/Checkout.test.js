@@ -1,9 +1,9 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Basket from "./Basket";
+import Checkout from "./Checkout";
 
-describe("Basket tests", () => {
+describe("Checkout tests", () => {
   it("should render", () => {
-    expect(render(<Basket />)).toBeTruthy();
+    expect(render(<Checkout />)).toBeTruthy();
   });
 });

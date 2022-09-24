@@ -8,12 +8,14 @@ import styles from './NavBar.module.scss';
 import { UserContext } from '../../context/UserContext/user.context';
 import { signOutAuthUser } from '../../utils/firebase/firebase.utils';
 import CartDropdown from '../CartDropdown/CartDropdown';
+import { CartContext } from '../../context/CartContext/cart.context';
 
 const NavBar = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const { currentUser } = useContext(UserContext);
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const { cartCount } = useContext(CartContext);
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -53,7 +55,7 @@ const NavBar = () => {
                 </NavLink>
               )}
 
-              <Badge badgeContent={2} color="primary" onClick={handleClick} sx={{ cursor: 'pointer' }}>
+              <Badge badgeContent={cartCount} color="primary" onClick={handleClick} sx={{ cursor: 'pointer' }}>
                 <ShoppingBasketIcon />
               </Badge>
             </div>

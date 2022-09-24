@@ -1,9 +1,10 @@
-import { Button, List, Popover } from '@mui/material';
-import React from 'react';
+import { Box, Button, List, ListItem, ListItemText, Popover, Typography } from '@mui/material';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './CartDropdown.module.scss';
+import { CartContext } from '../../context/CartContext/cart.context';
 
-const CartDropdown = ({ anchorEl, id, items, onClose: handleClose, open }) => {
+const CartDropdown = ({ anchorEl, id, onClose: handleClose, open }) => {
+  const { cartItems } = useContext(CartContext);
   return (
     <Popover
       id={id}
@@ -15,14 +16,33 @@ const CartDropdown = ({ anchorEl, id, items, onClose: handleClose, open }) => {
         horizontal: 'left',
       }}
     >
-      <List p={5}>
-        {/* {items.map((item) => (
-          <ListItem>{item}</ListItem>
-        ))} */}
-      </List>
-      <Link to="/checkout">
-        <Button variant="outlined"> Go to checkout</Button>
-      </Link>
+      <Box p={2} textAlign="center">
+        {cartItems?.length > 0 ? (
+          <>
+            <List py={2}>
+              {cartItems?.map((item) => (
+                <ListItem key={item.id}>
+                  <ListItemText
+                    primary={item.name}
+                    secondary={
+                      <>
+                        <Typography variant="body">
+                          x {item.quantity} £{item.price * item.quantity}
+                        </Typography>
+                      </>
+                    }
+                  ></ListItemText>
+                </ListItem>
+              ))}
+            </List>
+            <Link to="/checkout">
+              <Button variant="outlined"> Go to checkout</Button>
+            </Link>
+          </>
+        ) : (
+          <Box>Your cart is empty</Box>
+        )}
+      </Box>
     </Popover>
   );
 };

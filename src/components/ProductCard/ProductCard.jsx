@@ -22,7 +22,7 @@ const ProductCard = ({ product }) => {
       </Grid>
       <Button
         className={styles.button}
-        sx={{ position: 'absolute', top: '12rem', left: '6rem', fontWeight: 'bold' }}
+        sx={{ position: 'absolute', top: '10rem', left: '10rem', fontWeight: 'bold' }}
         variant="outlined"
         onClick={() => addProductToCart(product)}
       >

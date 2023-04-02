@@ -2,31 +2,26 @@ import React, { useContext } from 'react';
 import { withRouter } from 'react-router-dom';
 import styles from './MenuItem.module.scss';
 import { ProductContext } from '../../context/ProductContext/product.context';
-import hats from '../../data/hat-data';
-import jackets from '../../data/jacket-data';
-import shoes from '../../data/shoe-data';
-import mens from '../../data/men-data';
-import womens from '../../data/women-data';
+import SHOP_DATA from '../../data/shop-data';
 
 const MenuItem = ({ item, history, match }) => {
   const { setProducts } = useContext(ProductContext);
-
   const handleClick = () => {
     switch (item.title) {
       case 'hats':
-        setProducts(hats);
+        setProducts(SHOP_DATA[0].items);
         break;
       case 'jackets':
-        setProducts(jackets);
+        setProducts(SHOP_DATA[2].items);
         break;
       case 'mens':
-        setProducts(mens);
+        setProducts(SHOP_DATA[4].items);
         break;
       case 'womens':
-        setProducts(womens);
+        setProducts(SHOP_DATA[3].items);
         break;
       case 'shoes':
-        setProducts(shoes);
+        setProducts(SHOP_DATA[1].items);
         break;
 
       default:

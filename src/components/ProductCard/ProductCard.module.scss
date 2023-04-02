@@ -1,6 +1,14 @@
 .container {
+    width: 100%;
+    height: 350px;
     .button {
         display: none;
+    }
+    .image{
+        width: 100%;
+        height: 95%;
+        object-fit: cover;
+        margin-bottom: 5px;
     }
     &:hover {
         .image {

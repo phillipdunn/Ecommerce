@@ -18,10 +18,10 @@
         "price": 35
     },
     {
-        "id": 4,
-        "name": "Grey Brim",
-        "imageUrl": "https://i.ibb.co/RjBLWxB/grey-brim.png",
-        "price": 25
+        "id": 28,
+        "name": "Peach Heals",
+        "imageUrl": "https://img.freepik.com/premium-photo/women-s-beige-shoes-isolated-white-background-3d-rendering-illustration_97167-290.jpg?w=360&h=240",
+        "price": 14
     },
     {
         "id": 5,
@@ -30,10 +30,10 @@
         "price": 18
     },
     {
-        "id": 6,
-        "name": "Palm Tree Cap",
-        "imageUrl": "https://i.ibb.co/rKBDvJX/palm-tree-cap.png",
-        "price": 14
+        "id": 29,
+        "name": "White Heals",
+        "imageUrl": "https://img.freepik.com/premium-photo/fashionable-women-shoes-isolated-white-background-stylish-women_293990-772.jpg?w=360&h=240",
+        "price": 16
     },
     {
         "id": 7,
@@ -43,12 +43,6 @@
     },
     {
         "id": 8,
-        "name": "Wolf Cap",
-        "imageUrl": "https://i.ibb.co/1f2nWMM/wolf-cap.png",
-        "price": 14
-    },
-    {
-        "id": 9,
         "name": "Blue Snapback",
         "imageUrl": "https://i.ibb.co/X2VJP2W/blue-snapback.png",
         "price": 16

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { AppBar, Toolbar, useMediaQuery, useTheme } from '@mui/material';
+import { AppBar, Toolbar, Typography, useMediaQuery, useTheme } from '@mui/material';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import Badge from '@mui/material/Badge';
 import { NavLink } from 'react-router-dom';
@@ -27,7 +27,6 @@ const NavBar = () => {
 
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
-
   return (
     <>
       <AppBar position="static" style={{ background: 'grey' }}>
@@ -38,6 +37,8 @@ const NavBar = () => {
           {isMobile ? (
             <NavDrawer />
           ) : (
+          <>
+            <Typography noWrap width={'200px'} paddingLeft='2rem' color='orange'><b>{currentUser?.displayName}</b></Typography>
             <div className={styles.navLinks}>
               <NavLink to="/shop" className={styles.link}>
                 Shop
@@ -59,6 +60,7 @@ const NavBar = () => {
                 <ShoppingBasketIcon />
               </Badge>
             </div>
+          </>
           )}
         </Toolbar>
       </AppBar>

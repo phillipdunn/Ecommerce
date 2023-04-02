@@ -12,7 +12,6 @@ const MenuItem = ({ item, history, match }) => {
   const { setProducts } = useContext(ProductContext);
 
   const handleClick = () => {
-    console.log(item.title);
     switch (item.title) {
       case 'hats':
         setProducts(hats);

@@ -1,21 +1,15 @@
 [
     {
-        "id": 1,
-        "name": "Mens Brown Brim",
-        "imageUrl": "https://i.ibb.co/ZYW3VTp/brown-brim.png",
-        "price": 25
-    },
-    {
-        "id": 2,
-        "name": "Blue Beanie",
-        "imageUrl": "https://i.ibb.co/ypkgK0X/blue-beanie.png",
-        "price": 18
-    },
-    {
-        "id": 3,
-        "name": "Brown Cowboy",
-        "imageUrl": "https://i.ibb.co/QdJwgmp/brown-cowboy.png",
+        "id": 13,
+        "name": "Leather Jacket",
+        "imageUrl": "https://t4.ftcdn.net/jpg/04/51/15/39/240_F_451153951_Sph6KozC93U9Zq282GIgzoizCoVL8geZ.jpg",
         "price": 35
+    },
+    {
+        "id": 14,
+        "name": "Black Hoody",
+        "imageUrl": "https://t3.ftcdn.net/jpg/04/88/46/70/240_F_488467037_HAcRWaWML9muDH26FYPzYPtj1yYw5qLQ.jpg",
+        "price": 25
     },
     {
         "id": 4,
@@ -24,10 +18,16 @@
         "price": 25
     },
     {
-        "id": 5,
-        "name": "Green Beanie",
-        "imageUrl": "https://i.ibb.co/YTjW3vF/green-beanie.png",
+        "id": 15,
+        "name": "Orange Stripe Jacket",
+        "imageUrl": "https://t3.ftcdn.net/jpg/03/83/54/76/240_F_383547638_CDc6qV1e8lYIsA0QOxNGZmg1u1DMCR2E.jpg",
         "price": 18
+    },
+    {
+        "id": 18,
+        "name": "Charcoal Jacket",
+        "imageUrl": "https://t4.ftcdn.net/jpg/02/37/05/83/240_F_237058345_cJeiWLVgYeATmqh6Yphtn7jGZD3dLTUn.jpg",
+        "price": 14
     },
     {
         "id": 6,
@@ -36,21 +36,9 @@
         "price": 14
     },
     {
-        "id": 7,
-        "name": "Red Beanie",
-        "imageUrl": "https://i.ibb.co/bLB646Z/red-beanie.png",
-        "price": 18
-    },
-    {
-        "id": 8,
-        "name": "Wolf Cap",
-        "imageUrl": "https://i.ibb.co/1f2nWMM/wolf-cap.png",
-        "price": 14
-    },
-    {
-        "id": 9,
-        "name": "Blue Snapback",
-        "imageUrl": "https://i.ibb.co/X2VJP2W/blue-snapback.png",
+        "id": 19,
+        "name": "Black Gillete",
+        "imageUrl": "https://t4.ftcdn.net/jpg/02/35/26/65/240_F_235266543_8M3jnjOm6kVq6v6tnzKchVlMpLn97C85.jpg",
         "price": 16
     }
 ]

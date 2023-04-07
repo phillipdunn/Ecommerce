@@ -16,17 +16,19 @@ const CartDropdown = ({ anchorEl, id, onClose: handleClose, open }) => {
         horizontal: 'left',
       }}
     >
-      <Box p={2} textAlign="center">
+      <Box p={2} width="300px" textAlign="center">
         {cartItems?.length > 0 ? (
           <>
-            <List py={2}>
+            <List>
               {cartItems?.map((item) => (
                 <ListItem key={item.id}>
                   <ListItemText
+                    disableTypography
+                    sx={{ display: 'flex', justifyContent: 'space-between' }}
                     primary={item.name}
                     secondary={
                       <>
-                        <Typography variant="body">
+                        <Typography variant="body" pl={2}>
                           x {item.quantity} £{item.price * item.quantity}
                         </Typography>
                       </>

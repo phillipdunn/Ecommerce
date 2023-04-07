@@ -12,7 +12,7 @@ const ProductCard = ({ product }) => {
   return (
     <Grid item xs={4} sx={{ p: 2, position: 'relative' }} className={styles.container}>
       <img className={styles.image} src={imageUrl} alt={`${name}`} />
-      <Grid container spacing={20}>
+      <Grid container spacing={5}>
         <Grid item>
           <Box>{name}</Box>
         </Grid>
@@ -22,7 +22,7 @@ const ProductCard = ({ product }) => {
       </Grid>
       <Button
         className={styles.button}
-        sx={{ position: 'absolute', top: '10rem', left: '10rem', fontWeight: 'bold' }}
+        sx={{ position: 'absolute', top: '50%', left: '40%', fontWeight: 'bold' }}
         variant="outlined"
         onClick={() => addProductToCart(product)}
       >

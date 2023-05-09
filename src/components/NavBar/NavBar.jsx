@@ -37,30 +37,29 @@ const NavBar = () => {
           {isMobile ? (
             <NavDrawer />
           ) : (
-          <>
-            <Typography noWrap width={'200px'} paddingLeft='2rem' color='orange'><b>{currentUser?.displayName}</b></Typography>
-            <div className={styles.navLinks}>
-              <NavLink to="/shop" className={styles.link}>
-                Shop
-              </NavLink>
-              <NavLink to="/contact" className={styles.link}>
-                Contact
-              </NavLink>
-              {currentUser === null ? (
-                <NavLink to="/auth" className={styles.link}>
-                  Sign In
+            <>
+              <Typography noWrap width={'200px'} paddingLeft="2rem" color="orange">
+                <b>{currentUser?.displayName}</b>
+              </Typography>
+              <div className={styles.navLinks}>
+                <NavLink to="/contact" className={styles.link}>
+                  Contact
                 </NavLink>
-              ) : (
-                <NavLink to="/" onClick={signOutAuthUser} className={styles.link}>
-                  Sign Out
-                </NavLink>
-              )}
+                {currentUser === null ? (
+                  <NavLink to="/auth" className={styles.link}>
+                    Sign In
+                  </NavLink>
+                ) : (
+                  <NavLink to="/" onClick={signOutAuthUser} className={styles.link}>
+                    Sign Out
+                  </NavLink>
+                )}
 
-              <Badge badgeContent={cartCount} color="primary" onClick={handleClick} sx={{ cursor: 'pointer' }}>
-                <ShoppingBasketIcon />
-              </Badge>
-            </div>
-          </>
+                <Badge badgeContent={cartCount} color="primary" onClick={handleClick} sx={{ cursor: 'pointer' }}>
+                  <ShoppingBasketIcon />
+                </Badge>
+              </div>
+            </>
           )}
         </Toolbar>
       </AppBar>

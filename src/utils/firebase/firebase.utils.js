@@ -8,7 +8,7 @@ import {
   signOut,
   onAuthStateChanged,
 } from 'firebase/auth';
-import { getFirestore, doc, getDoc, setDoc, collection, writeBatch, getDocs, query } from 'firebase/firestore';
+import { getFirestore, doc, getDoc, setDoc, collection, getDocs, query } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBVhv16FJnu9x9YHVoaeAfkRUMz0niTKwQ',
@@ -19,6 +19,7 @@ const firebaseConfig = {
   appId: '1:322800220143:web:3a858001479459df5ce81a',
 };
 
+// eslint-disable-next-line no-unused-vars
 const firebaseApp = initializeApp(firebaseConfig);
 
 const provider = new GoogleAuthProvider();

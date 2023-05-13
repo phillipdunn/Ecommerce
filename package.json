@@ -67,6 +67,7 @@
     ]
   },
   "devDependencies": {
+    "mini-css-extract-plugin": "2.4.5",
     "mkrc": "^1.3.36"
   }
 }

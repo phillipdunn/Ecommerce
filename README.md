@@ -3,7 +3,7 @@
 A simple e-commerce application.
 
 - built with create react app
-- using stripe, netlify, material-UI, react-final-form, SCSS, fontawesome
+- using Redux, Stripe, Netlify, Material-UI, react-final-form, SCSS, Fontawesome
 
 ## Running the project
 
